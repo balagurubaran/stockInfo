@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stock entry</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+ 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body  ng-app="addStock" data-ng-controller="AddStockController as mainCtrl">
+
+    <div id="wrapper">
+    	<div class="col-md-6 col-md-offset-3">
+    <h2>Stock Entry</h2>
+    <form name="form" ng-submit="mainCtrl.login()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.stockID.$dirty && form.stockID.$error.required }">
+            <label for="stockID">StockID</label>
+            <input type="text" name="stockID" id="stockID" class="form-control" ng-model="mainCtrl.stockID1" required />
+            <span ng-show="form.stockID.$dirty && form.stockID.$error.required" class="help-block">StockID is required</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': form.price.$dirty && form.price.$error.required }">
+            <label for="price">Targt Price</label>
+            <input type="price" name="price" id="price" class="form-control" ng-model="mainCtrl.price1" required />
+            <span ng-show="form.price.$dirty && form.price.$error.required" class="help-block">Price is required</span>
+        </div>
+        
+        <div class="form-group" ng-class="{ 'has-error': form.price.$dirty && form.price.$error.required }">
+            <label for="price">Comments</label>
+            <input type="text" name="comments" id="comments" class="form-control" ng-model="mainCtrl.comments" required />
+            <span ng-show="form.price.$dirty && form.comments.$error.required" class="help-block">comments is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid " class="btn btn-primary">Add</button>
+            <span ng-bind="status"></span>
+        </div>
+    </form>
+</div>
+
+    </div>
+    <!-- /#wrapper -->
+       
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+
+    <!-- angualr JA -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+
+    <!-- ProjectJS files -->
+    <script src="addStockDetail.js"></script>
+    <script src="js/Services/PizzaServices.js"></script>
+
+</body>
+
+</html>
